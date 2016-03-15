@@ -12,4 +12,11 @@ public class Matrix{
       for(int j=0; j<columns; j++)
         this.matrix[i][j] = matrix[i][j]; 
   }
+
+  public int[] getRow(int n){
+    if(n>=rows || n<0) 
+      throw new IndexOutOfBoundsException();
+    else
+      return matrix[n];
+  }
 }

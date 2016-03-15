@@ -4,13 +4,13 @@ public class Matrix{
   private int columns;
   private int[][] matrix;
   
-  public Matrix(int[][] matrix){
-    rows = matrix.length;
-    columns = matrix[0].length;
-    
-    for(int i=0; i<rows; i++)
-      for(int j=0; j<columns; j++)
-        this.matrix[i][j] = matrix[i][j]; 
+  public Matrix(int[][] m){
+    rows = m.length;
+    columns = m[0].length;
+    matrix = new int[rows][columns]; 
+    for(int i=0; i<matrix.length; i++)
+      for(int j=0; j<matrix[i].length; j++)
+        this.matrix[i][j] = m[i][j]; 
   }
 
   public int[] getRow(int n){

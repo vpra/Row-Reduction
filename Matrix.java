@@ -19,4 +19,19 @@ public class Matrix{
     else
       return matrix[n];
   }
+  
+  public void display(){
+    for(int i=0; i<rows; i++){
+      System.out.print("|");
+      
+      for(int j=0; j<columns; j++)
+        System.out.print(matrix[i][]j+"|");
+
+      System.out.print("\n");
+    }
+  }
+
+  private void forwardPhase(){
+    
+  }
 }

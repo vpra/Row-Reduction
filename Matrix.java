@@ -28,6 +28,15 @@ public class Matrix{
     }
   }
 
+  public int rank(int[] row){
+    int rank=0;
+    for(int i=0; i<columns; i++){
+      if(row[i]!=0)
+        break;
+      else
+        rank++;
+    }
+  }
   private void forwardPhase(){
     
   }

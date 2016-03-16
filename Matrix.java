@@ -23,11 +23,12 @@ public class Matrix{
   public void display(){
 	    for(int i=0; i<rows; i++){
 	      for(int j=0; j<columns; j++)
-	        System.out.print(matrix[i][j]+" ");
+	        System.out.print(matrix[i][j]+"|");
 	      System.out.print("\n");
 	    }
-	  }
-  public int rank(float[] row){
+	}
+
+  private int rank(float[] row){
 	    int rank=0;
 	    for(int i=0; i<columns; i++){
 	      if(row[i]!=0)
@@ -36,9 +37,9 @@ public class Matrix{
 	        rank++;
 	    }
 	    return rank;
-	  }
+	}
   
-  public void rankAndSort(){
+  private void rankAndSort(){
 	  int[] ranks = new int[rows];
 	  for(int x = 0; x<rows; x++){
 		  ranks[x]= rank(getRow(x));
@@ -55,7 +56,6 @@ public class Matrix{
 	  }
   }
   
-
   //throw exc
   private void swap(float[] first, float[] second){
 	  float[] transfer = new float[first.length];
@@ -67,18 +67,16 @@ public class Matrix{
 	  }
 	  for(int x = 0; x<first.length;x++){
 		  second[x] = transfer[x];
-	  }
-	  
+	  } 
   }
   
-  // Immutable
   private void scale(float[] base, float scale){
     for(int i=0; i<base.length; i++)
      base[i]*=scale;
   }
 
   //throw exc
-  public void scaleAndAdd(float[] base, float scale,float[] row){
+  private void scaleAndAdd(float[] base, float scale,float[] row){
     if(base.length!=row.length)
       throw new IndexOutOfBoundsException();
     
@@ -100,7 +98,6 @@ public class Matrix{
     return -1;
   }
  
-
   // Forward phase of Gauss Jordan Elimination
   private void forwardPhase(){
       for(int i=0; i<rows; i++){
@@ -123,7 +120,7 @@ public class Matrix{
   }
   
   //Backward phase of Gauss Jordan Elimination
-  public void backwardPhase(){
+  private void backwardPhase(){
 	  
     int curr = rows-1;
     while(curr>0){
@@ -144,10 +141,10 @@ public class Matrix{
 	}
 
   public Matrix rowReduce(){
-  rankAndSort();
-  forwardPhase();
-  backwardPhase();
+    rankAndSort();
+    forwardPhase();
+    backwardPhase();
 
-  return this;
+    return this;
   }
 }

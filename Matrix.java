@@ -123,8 +123,26 @@ public class Matrix{
   }
   
   //Backward phase of Gauss Jordan Elimination
-  private void backwardPhase(){
-  }
+  public void backwardPhase(){
+	  int curr = rows;
+	  while(curr>0){
+		  int index = 0;
+		  while(getRow(curr)[index]==0){
+			  index++;
+		  }
+		  int arc = curr;
+		  arc--;
+		  for(int test=arc;test>=0;test--){
+			  float factor = getRow(test)[index];
+			  factor = -1*factor;
+			  scaleAndAdd(getRow(curr),factor,getRow(test));
+		  }
+		  curr--;
+	  }
+	  
+	  
+	  
+	  }
 
   public Matrix rowReduce(){
   rankAndSort();

@@ -68,6 +68,11 @@ public class Matrix{
 	  }
 	  
   }
+  
+  private void scale(float[] row, float scale){
+    for(int i=0; i<row.length; i++)
+      row[i] = scale*row[i];
+  }
 
   // Forward phase of Gauss Jordan Elimination
   private void forwardPhase(){
@@ -75,7 +80,7 @@ public class Matrix{
   }
   
   //Backward phase of Gauss Jordan Elimination
-  private void backwardPhae(){
+  private void backwardPhase(){
   }
 
   public Matrix rowReduce(){

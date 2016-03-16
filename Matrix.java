@@ -36,8 +36,28 @@ public class Matrix{
       else
         rank++;
     }
+    return rank;
   }
+  
+  //Sort the matrix so that rows that have more leading
+  //'0' come below those which have less '0'
+  private void sortAndReduce(){
+  }
+
+  // Forward phase of Gauss Jordan Elimination
   private void forwardPhase(){
-    
+       
+  }
+  
+  //Backward phase of Gauss Jordan Elimination
+  private void backwardPhae(){
+  }
+
+  public Matrix rowReduce(){
+  sortAndReduce();
+  forwardPhase();
+  backwardPhase();
+
+  return this;
   }
 }

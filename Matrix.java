@@ -83,17 +83,13 @@ public class Matrix{
 
   //throw exc
   //Immutable
-  public float[] add(float[] base, float[] row){
+  public void ScaleandAdd(float[] base, float scale,float[] row){
     if(base.length!=row.length)
       throw new IndexOutOfBoundsException();
     
-    float[] sum = new float[base.length];
-    
-    for(int i=0; i<row.length; i++)
-      sum[i] = base[i] + row[i];
-
-    return sum;
-  }
+    for(int i=0; i<base.length; i++)
+      base[i] = base[i]*scale + row[i];
+  }  
   
   private float non_zero(float[] row){
     for(int i=0; i<row.length; i++)
@@ -109,7 +105,7 @@ public class Matrix{
         if(elem==-1)
             return;
         else{
-          scale(matrix[i],elem);
+          matrix[i] = scale(matrix[i],elem);
           for(int j=i+1;j<rows;j++)
            return; 
         }

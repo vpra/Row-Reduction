@@ -82,8 +82,7 @@ public class Matrix{
   }
 
   //throw exc
-  //Immutable
-  public void ScaleandAdd(float[] base, float scale,float[] row){
+  public void scaleAndAdd(float[] base, float scale,float[] row){
     if(base.length!=row.length)
       throw new IndexOutOfBoundsException();
     

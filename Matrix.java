@@ -41,7 +41,34 @@ public class Matrix{
   
   //Sort the matrix so that rows that have more leading
   //'0' come below those which have less '0'
-  private void sortAndReduce(){
+  public void rankAndSort(){
+	  int[] ranks = new int[rows];
+	  for(int x = 0; x<rows; x++){
+		  ranks[x]= rank(getRow(x));
+	  }
+	  for(int x = 0; x<rows;x++){
+		  for(int y = x; y<rows; y++){
+			  if(ranks[x]>ranks[y]){
+				  swap(getRow(x),getRow(y));
+				  int z = ranks[x];
+				 ranks[x] = ranks[y];
+				  ranks[y] = z;
+			  }
+		  }
+	  }
+  }
+  
+  private void swap(int[] first, int[] second){
+	  int[] transfer = new int[first.length];
+	  for(int x = 0; x<first.length;x++){
+		  transfer[x] = first[x];
+	  }
+	  for(int x = 0; x<first.length;x++){
+		  first[x] = second[x];
+	  }
+	  for(int x = 0; x<first.length;x++){
+		  second[x] = transfer[x];
+	  }
   }
 
   // Forward phase of Gauss Jordan Elimination
@@ -54,7 +81,7 @@ public class Matrix{
   }
 
   public Matrix rowReduce(){
-  sortAndReduce();
+  rankAndSort();
   forwardPhase();
   backwardPhase();
 

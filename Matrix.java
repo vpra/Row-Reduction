@@ -71,6 +71,12 @@ public class Matrix{
 	  
   }
   
+  public void scale(float[] row, float scale){
+	  for(int x = 0; x<row.length;x++){
+	  	row[x] = row[x] * scale;
+	  }
+  }
+  
   //throw exc
   public void scaleAndAdd(float[] base, float scale, float[] row){
     for(int i=0; i<row.length; i++)

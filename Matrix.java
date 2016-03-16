@@ -71,29 +71,48 @@ public class Matrix{
 	  
   }
   
-  private void scale(float[] base, float scale){
+  // Immutable
+  private float[] scale(float[] base, float scale){
+    float[] ret = new float[base.length];
+
     for(int i=0; i<base.length; i++)
-      base[i]*=scale;
+      ret[i] = base[i]*scale;
+
+    return ret;
   }
 
   //throw exc
-  public void scaleAndAdd(float[] base, float scale, float[] row){
-    scale(base,scale);
+  //Immutable
+  public float[] add(float[] base, float[] row){
+    if(base.length!=row.length)
+      throw new IndexOutOfBoundsException();
+    
+    float[] sum = new float[base.length];
+    
     for(int i=0; i<row.length; i++)
-      row[i]+=base[i];
+      sum[i] = base[i] + row[i];
+
+    return sum;
   }
   
   private float non_zero(float[] row){
     for(int i=0; i<row.length; i++)
       if(row[i]!=0)
         return row[i];
-    return 0;
+    return -1;
   }
 
   // Forward phase of Gauss Jordan Elimination
   private void forwardPhase(){
       for(int i=0; i<rows; i++){
-        
+        float elem = non_zero(matrix[i]);
+        if(elem==-1)
+            return;
+        else{
+          scale(matrix[i],elem);
+          for(int j=i+1;j<rows;j++)
+           return; 
+        }
       }
   }
   

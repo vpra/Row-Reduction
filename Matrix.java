@@ -55,6 +55,8 @@ public class Matrix{
 	  }
   }
   
+
+  //throw exc
   private void swap(float[] first, float[] second){
 	  float[] transfer = new float[first.length];
 	  for(int x = 0; x<first.length;x++){
@@ -69,9 +71,10 @@ public class Matrix{
 	  
   }
   
-  private void scale(float[] row, float scale){
+  //throw exc
+  public void scaleAndAdd(float[] base, float scale, float[] row){
     for(int i=0; i<row.length; i++)
-      row[i] = scale*row[i];
+      row[i] = row[i] + scale*base[i];
   }
 
   // Forward phase of Gauss Jordan Elimination

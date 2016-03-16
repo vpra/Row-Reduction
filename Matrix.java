@@ -76,10 +76,19 @@ public class Matrix{
     for(int i=0; i<row.length; i++)
       row[i] = row[i] + scale*base[i];
   }
+  
+  private float non_zero(float[] row){
+    for(int i=0; i<row.length; i++)
+      if(row[i]!=0)
+        return row[i];
+    return 0;
+  }
 
   // Forward phase of Gauss Jordan Elimination
   private void forwardPhase(){
-       
+      for(int i=0; i<rows; i++){
+        
+      }
   }
   
   //Backward phase of Gauss Jordan Elimination

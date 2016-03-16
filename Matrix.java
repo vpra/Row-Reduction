@@ -104,12 +104,18 @@ public class Matrix{
   // Forward phase of Gauss Jordan Elimination
   private void forwardPhase(){
       for(int i=0; i<rows; i++){
-        float elem = nonZero(matrix[i]);
-        if(elem==-1)
+        
+        float nz = nonZero(matrix[i]);
+        
+        if(nz==-1)
             return;
         else{
+          // Scale the current row by the first non-zero element
+          scale(matrix[i],1/nz);
+
+          //Apply transform to all the following rows
           int index = nonZeroIndex(matrix[i]);
-          scale(matrix[i],elem);
+          
           for(int j=i+1;j<rows;j++)
             scaleAndAdd(matrix[i],-matrix[j][index],matrix[j]);
         }

@@ -2,18 +2,18 @@ public class Matrix{
 
   private int rows;
   private int columns;
-  private int[][] matrix;
+  private float[][] matrix;
   
-  public Matrix(int[][] m){
+  public Matrix(float[][] m){
     rows = m.length;
     columns = m[0].length;
-    matrix = new int[rows][columns]; 
+    matrix = new float[rows][columns]; 
     for(int i=0; i<matrix.length; i++)
       for(int j=0; j<matrix[i].length; j++)
         this.matrix[i][j] = m[i][j]; 
   }
 
-  public int[] getRow(int n){
+  public float[] getRow(int n){
     if(n>=rows || n<0) 
       throw new IndexOutOfBoundsException();
     else
@@ -21,26 +21,23 @@ public class Matrix{
   }
   
   public void display(){
-    for(int i=0; i<rows; i++){
-      for(int j=0; j<columns; j++)
-        System.out.print(matrix[i][j]+" ");
-      System.out.print("\n");
-    }
-  }
-
-  public int rank(int[] row){
-    int rank=0;
-    for(int i=0; i<columns; i++){
-      if(row[i]!=0)
-        break;
-      else
-        rank++;
-    }
-    return rank;
-  }
+	    for(int i=0; i<rows; i++){
+	      for(int j=0; j<columns; j++)
+	        System.out.print(matrix[i][j]+" ");
+	      System.out.print("\n");
+	    }
+	  }
+  public int rank(float[] row){
+	    int rank=0;
+	    for(int i=0; i<columns; i++){
+	      if(row[i]!=0)
+	        break;
+	      else
+	        rank++;
+	    }
+	    return rank;
+	  }
   
-  //Sort the matrix so that rows that have more leading
-  //'0' come below those which have less '0'
   public void rankAndSort(){
 	  int[] ranks = new int[rows];
 	  for(int x = 0; x<rows; x++){
@@ -58,8 +55,8 @@ public class Matrix{
 	  }
   }
   
-  private void swap(int[] first, int[] second){
-	  int[] transfer = new int[first.length];
+  private void swap(float[] first, float[] second){
+	  float[] transfer = new float[first.length];
 	  for(int x = 0; x<first.length;x++){
 		  transfer[x] = first[x];
 	  }
@@ -69,6 +66,7 @@ public class Matrix{
 	  for(int x = 0; x<first.length;x++){
 		  second[x] = transfer[x];
 	  }
+	  
   }
 
   // Forward phase of Gauss Jordan Elimination

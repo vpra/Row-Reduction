@@ -72,13 +72,9 @@ public class Matrix{
   }
   
   // Immutable
-  private float[] scale(float[] base, float scale){
-    float[] ret = new float[base.length];
-
+  private void scale(float[] base, float scale){
     for(int i=0; i<base.length; i++)
-      ret[i] = base[i]*scale;
-
-    return ret;
+     base[i]=*scale;
   }
 
   //throw exc
@@ -106,7 +102,7 @@ public class Matrix{
         else{
           matrix[i] = scale(matrix[i],elem);
           for(int j=i+1;j<rows;j++)
-           return; 
+            
         }
       }
   }
